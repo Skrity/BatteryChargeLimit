@@ -42,7 +42,7 @@
     <string name="battery_info_C">U: %1$.3f V, T: %2$.1f &#8451;</string>
     <string name="battery_info_F">U: %1$.3f V, T: %2$.1f &#8457;</string>
 
-    <string name="root_denied">Приоржению отказаны права ROOT доступа или устройство не root'ированно!</string>
+    <string name="root_denied">Приоржению отказаны права ROOT доступа или устройство не root\'ированно!</string>
     <string name="stats_reset_success">Статистика аккумулятора успешно сброшена!</string>
 
     <string name="intent_handle_activity">Battery Charge Limit Handling Activity</string>

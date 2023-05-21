@@ -21,6 +21,8 @@ object Constants {
     const val LIMIT = "limit"
     const val MIN = "min"
     const val ENABLE = "enable"
+    const val STOP_CHARGING = "stop_charging"
+    const val PLUGGED_IN = "plugged_in"
     const val NOTIFICATION_LIVE = "notificationLive"
     const val AUTO_RESET_STATS = "auto_reset_stats"
     const val NOTIFICATION_SOUND = "notificationSound"

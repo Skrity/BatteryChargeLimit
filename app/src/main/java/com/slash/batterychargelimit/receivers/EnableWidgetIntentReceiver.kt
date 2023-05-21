@@ -10,7 +10,8 @@ import com.slash.batterychargelimit.R
 import com.slash.batterychargelimit.SharedMethods
 import eu.chainfire.libsuperuser.Shell
 
-import com.slash.batterychargelimit.Constants.ENABLE
+import com.slash.batterychargelimit.Constants.STOP_CHARGING
+import com.slash.batterychargelimit.Constants.PLUGGED_IN
 import com.slash.batterychargelimit.Constants.SETTINGS
 import com.slash.batterychargelimit.Constants.INTENT_TOGGLE_ACTION
 import com.slash.batterychargelimit.EnableWidget
@@ -20,14 +21,16 @@ class EnableWidgetIntentReceiver : BroadcastReceiver() {
         if (intent.action == INTENT_TOGGLE_ACTION) {
             val settings = context.getSharedPreferences(SETTINGS, 0)
             if (Shell.SU.available()) {
-                val enable = !settings.getBoolean(ENABLE, false)
-                settings.edit().putBoolean(ENABLE, enable).apply()
-                if (enable) {
-                    SharedMethods.startService(context)
-                } else {
-                    SharedMethods.stopService(context)
+                if (settings.getBoolean(PLUGGED_IN, false)) {
+                    val stop = !settings.getBoolean(STOP_CHARGING, false)
+                    if (stop) {
+                        SharedMethods.changeState(context, SharedMethods.CHARGE_OFF)
+                    } else {
+                        SharedMethods.changeState(context, SharedMethods.CHARGE_ON)
+                    }
+                    settings.edit().putBoolean(STOP_CHARGING, stop).apply()
+                    updateWidget(context, stop)
                 }
-                updateWidget(context, enable)
             } else {
                 Toast.makeText(context, R.string.root_denied, Toast.LENGTH_LONG).show()
             }

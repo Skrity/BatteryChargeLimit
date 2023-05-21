@@ -174,7 +174,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 SharedMethods.stopService(context)
             }
-            EnableWidgetIntentReceiver.updateWidget(context, isChecked)
+//            EnableWidgetIntentReceiver.updateWidget(context, isChecked)
         }
     }
 

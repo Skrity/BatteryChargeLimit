@@ -3,7 +3,9 @@ package com.slash.batterychargelimit.receivers
 import android.content.*
 import android.preference.PreferenceManager
 import android.util.Log
+import com.slash.batterychargelimit.Constants
 import com.slash.batterychargelimit.Constants.POWER_CHANGE_TOLERANCE_MS
+import com.slash.batterychargelimit.Constants.PLUGGED_IN
 import com.slash.batterychargelimit.ForegroundService
 import com.slash.batterychargelimit.SharedMethods
 import com.slash.batterychargelimit.settings.SettingsFragment
@@ -39,9 +41,13 @@ class PowerConnectionReceiver : BroadcastReceiver() {
         }
         if (action == Intent.ACTION_POWER_CONNECTED) {
             Log.d("Power State", "ACTION_POWER_CONNECTED")
+            context.getSharedPreferences(Constants.SETTINGS, 0).edit().putBoolean(PLUGGED_IN, true).apply()
             SharedMethods.startService(context)
         } else if (action == Intent.ACTION_POWER_DISCONNECTED) {
             Log.d("Power State", "ACTION_POWER_DISCONNECTED")
+            context.getSharedPreferences(Constants.SETTINGS, 0).edit().putBoolean(PLUGGED_IN, false).apply()
+            context.getSharedPreferences(Constants.SETTINGS, 0).edit().putBoolean(Constants.STOP_CHARGING, false).apply()
+            EnableWidgetIntentReceiver.updateWidget(context, false)
             SharedMethods.stopService(context, false)
         }
     }

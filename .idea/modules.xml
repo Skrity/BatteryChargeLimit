@@ -3,7 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BatteryChargeLimit.iml" filepath="$PROJECT_DIR$/BatteryChargeLimit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BatteryChargeLimit.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/skrit.BatteryChargeLimit.iml" filepath="$PROJECT_DIR$/.idea/modules/skrit.BatteryChargeLimit.iml" />
     </modules>
   </component>
 </project>
